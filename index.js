@@ -22,9 +22,14 @@ app.use(cors())
 
 app.post('/', async (req, res) => {
     const { message } = req.body;
+    const { price } = req.body;
+
+    console.log(message, price);
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: `What is the best ${message} based on the opinions of reddit users. Answer in the form of a three element javascript list`,
+        prompt: `What is the best ${message} based on the opinions of reddit users under ${price} dolars. 
+        Answer in the form of a three diffrent things in javascript list.
+        If the price is too low and you can't find anything then answer in the form of a one-item list "low"`,
         max_tokens: 50,
         temperature: 0,
       });
