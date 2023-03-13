@@ -11,6 +11,11 @@ function Home() {
     setPrice(result);
   };
 
+  const handleMessage = (e) => {
+    const result = e.target.value
+    setMessage(result)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3001/", {
@@ -41,33 +46,51 @@ function Home() {
   return (
     <div className="home-container">
       <div>
-      <div className="banner">
-      <div className="banner-text">I'm not an expert, but I'm really need it</div>
-      <div className="banner-img"><img src={BannerImage}/>
+        <div className="banner">
+          <div className="banner-text">I'm not an expert, but I'm really need it</div>
+          <div className="banner-img"><img src={BannerImage} alt="mountain bike"/>
       </div>
-      <div className="block" > I'm red huge boy </div>
+      <div className="block"></div>
       </div>
-        <div>
-        <form onSubmit={handleSubmit}>
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-          <input
-            type="text"
-            placeholder="Max price"
-            value={price}
-            onChange={handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
+      
+      <div className="user-panel">
+
+          <div className="user-product">
+            <input 
+              type="text"
+              placeholder="product"
+              value={message}
+              onChange={handleMessage}
+            />
+          </div>
+
+          <div className="user-price">
+            <input
+            
+              type="text"
+              placeholder="Max price"
+              value={price}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div >
+            <button 
+              onClick={handleSubmit}
+              className="user-button"
+            >Submit</button>
+          </div>
+
+      </div>
+
+        <div className="user-response">
+          <div>We have proposition for you:</div>
+          <div>{hangleResponse(response)}</div>
+          <button type="submit" onClick={() => setResponse("")}>
+          Clear result
+          </button>
         </div>
 
-        <div>We have proposition for you:</div>
-        <div>{hangleResponse(response)}</div>
-        <button type="submit" onClick={() => setResponse("")}>
-          Clear result
-        </button>
       </div>
     </div>
   );
