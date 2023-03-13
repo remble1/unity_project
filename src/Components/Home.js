@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import BannerImage from "../Assets/santa_dh.png"
 
 function Home() {
   const [message, setMessage] = useState("");
   const [price, setPrice] = useState("");
   const [response, setResponse] = useState("");
+  const ref = useRef(null);
 
   const handleChange = (e) => {
     const result = e.target.value.replace(/\D/g, "");
@@ -16,7 +17,14 @@ function Home() {
     setMessage(result)
   }
 
+  const clear_result = (e) => {
+    setResponse("")
+    setPrice("")
+    setMessage("")
+  }
+
   const handleSubmit = (e) => {
+    ref.current?.scrollIntoView({behavior: 'smooth'});
     e.preventDefault();
     fetch("http://localhost:3001/", {
       method: "POST",
@@ -55,27 +63,29 @@ function Home() {
       
       <div className="user-panel">
 
-          <div className="user-product">
+          <div>
             <input 
+              className="user-product"
               type="text"
-              placeholder="product"
+              placeholder="Product name"
               value={message}
               onChange={handleMessage}
             />
           </div>
 
-          <div className="user-price">
+          <div>
             <input
-            
+              className="user-price"
               type="text"
-              placeholder="Max price"
+              placeholder="Max price $"
               value={price}
               onChange={handleChange}
             />
           </div>
 
-          <div >
+          <div>
             <button 
+              disabled={!message}
               onClick={handleSubmit}
               className="user-button"
             >Submit</button>
@@ -83,10 +93,21 @@ function Home() {
 
       </div>
 
-        <div className="user-response">
-          <div>We have proposition for you:</div>
-          <div>{hangleResponse(response)}</div>
-          <button type="submit" onClick={() => setResponse("")}>
+        <div
+        className="user-response"
+        >
+          <div>Here are proposition for you:</div>
+          <div className="result-list">
+          {hangleResponse(response)}
+          </div>
+        </div>
+        <div
+        ref={ref} 
+        >
+          <button 
+          className="clear-result"
+          type="submit" 
+          onClick={() => clear_result()}>
           Clear result
           </button>
         </div>
@@ -97,3 +118,6 @@ function Home() {
 }
 
 export default Home;
+
+// TODO Blokada na klikanie jak nie ma elementów
+// TODO zsuwanie się na dół po kliknięciu submit

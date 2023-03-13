@@ -8,7 +8,7 @@ img {
   height: auto;
 }
 .App {
-  min-height: 100vh;
+  min-height: 115rem;
   /* width: 85vw; */
   margin: 0rem auto;
   background-color: #e6ecef;
@@ -38,16 +38,14 @@ body {
   font-weight: 600;
   flex-wrap: 'wrap';
   padding: 60px;
-  /* margin-bottom: 1rem; */
   z-index: 1;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .banner-img {
   position: absolute;
   padding-right: 2vw;
   right: 0;
-  max-width: 80rem;
   z-index: 1;
   max-width: 700px;
 }
@@ -57,7 +55,7 @@ body {
   border-radius: 50px;
   right: 0;
   margin-right: 10vw;
-  height: 50vh;
+  height: 100rem;
   width: 40vw;
   background: #d8444d;
   z-index: 0;
@@ -77,7 +75,7 @@ body {
   display: none;
 }
 .navbar-links-container a {
-  margin-right: 3rem;
+  margin-right: 3vw;
   text-decoration: none;
   color: black;
   font-size: 1.1rem;
@@ -97,45 +95,80 @@ body {
 .user-panel {
   position: absolute;
   background-color: white;
-  width: 60vw;
+  width: 80vw;
+  max-width: 64rem;
   margin-left: 60px;
-
   margin-top: 20rem;
   margin-bottom: 700px;
   padding: 1rem;
-
   z-index: 1;
   border-radius: 1rem;
   display: flex;
 }
 .user-product {
+  height: 4rem;
+  width: 20rem;
   background-color: #e6ecef;
-  padding: 20px;
-  margin: 20px;
+  padding: 30px;
+  margin: 10px;
   border-radius: 0.5rem;
   border: none;
-
+  font-size: large;
 }
 
 .user-price {
+  height: 4rem;
+  width: 20rem;
   background-color: #e6ecef;
-  padding: 20px;
-  margin: 20px;
+  padding: 30px;
+  margin: 10px;
   border-radius: 0.5rem;
   border: none;
-
+  font-size: large;
 }
 
 .user-button {
+  height: 4rem;
+  width: 18rem;
   background-color: #809be1;
-  padding: 20px;
-  margin: 20px;
-  border: none;
+  /* padding: 30px; */
+  margin-left: 50px;
+  margin: 10px;
+  /* border: none; */
   border-radius: 0.5rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: large;
 }
 
 .user-response {
-  padding-top: 42rem;
+  padding-top: 34rem;
+  margin-left: 60px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: xxx-large;
+  font-weight: 600;
+}
+
+.result-list {
+  /* margin-left: px; */
+  height: 15rem;
+  width: 45rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: x-large;
+  padding-left: 30px;
+  margin-top: 20px;
+  /* border: 1px solid black; */
+}
+
+.clear-result {
+  position: absolute;
+  margin-top: 20rem;
+  margin-left: 42rem;
+  height: 4rem;
+  width: 10rem;
+  background-color: #809be1;
+  border-radius: 0.5rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: large;
 }
 
 .navbar-cart-icon {
