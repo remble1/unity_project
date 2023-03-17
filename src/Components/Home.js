@@ -55,7 +55,7 @@ function Home() {
     <div className="home-container">
       <div>
         <div className="banner">
-          <div className="banner-text">I'm not an expert, but I'm really need it</div>
+          <div className="banner-text">I'm not an expert, but I really need it</div>
           <div className="banner-img"><img src={BannerImage} alt="mountain bike"/>
       </div>
       <div className="block"></div>
