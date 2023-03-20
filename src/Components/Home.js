@@ -26,7 +26,7 @@ function Home() {
   const handleSubmit = (e) => {
     ref.current?.scrollIntoView({behavior: 'smooth'});
     e.preventDefault();
-    fetch("http://localhost:3001/", {
+    fetch("http://34.240.1.226:3001/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
