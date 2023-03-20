@@ -6,6 +6,8 @@ function Home() {
   const [price, setPrice] = useState("");
   const [response, setResponse] = useState("");
   const ref = useRef(null);
+  const ref1 = useRef(null);
+
 
   const handleChange = (e) => {
     const result = e.target.value.replace(/\D/g, "");
@@ -18,6 +20,7 @@ function Home() {
   }
 
   const clear_result = (e) => {
+    ref1.current?.scrollIntoView({behavior: 'smooth'});
     setResponse("")
     setPrice("")
     setMessage("")
@@ -52,10 +55,10 @@ function Home() {
   }
 
   return (
-    <div className="home-container">
-      <div>
+    <div ref={ref1} className="home-container">
+      <div >
         <div className="banner">
-          <div className="banner-text">I'm not an expert, but I really need it</div>
+          <div className="banner-text">You don't want to buy a pig in a poke? Neither do we. Ask around for honest reviews.</div>
           <div className="banner-img"><img src={BannerImage} alt="mountain bike"/>
       </div>
       <div className="block"></div>
@@ -96,7 +99,7 @@ function Home() {
         <div
         className="user-response"
         >
-          <div>Here are proposition for you:</div>
+          <div>Someone's lucky! Look what we found:</div>
           <div className="result-list">
           {hangleResponse(response)}
           </div>
@@ -119,5 +122,3 @@ function Home() {
 
 export default Home;
 
-// TODO Blokada na klikanie jak nie ma elementów
-// TODO zsuwanie się na dół po kliknięciu submit
